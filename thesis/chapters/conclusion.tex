@@ -1,0 +1,32 @@
+% SAŽETI PRIKAZ MOTIVACIJE ZA RAD U ŠIREM PODRUČJU TEME 
+Through this thesis, the prediction model for the end device activation in the Long Range Wide Area Network (LoRaWAN) was proposed.
+The LoRaWAN has recently emerged as an open sourced media access control protocol built on top of proprietary physical layer, LoRa, employing the CSS modulation technique.
+The LoRaWAN is used for low power wide area networks (LPWAN) where the power efficient communication over very long distances is required.
+These kind of networks are deployed for wireless sensor networks, where the activation of an end device is triggered with an event.
+Without the scheduling on the base station of a network, collisions occur incessantly.  
+This causes retransmissions and, consequently, a significantly greater energy consumption.
+With the possibility of the end device activation predicition, communication protocols could be upgraded, but since there is a low chance of the prediction working in the stohastic environment, alternative forecasting methods had to be introduced.
+
+% TEMA RADA, GLAVNI ELEMENTI ONOGA ŠTO JE NAPRAVLJENO
+%1. TEMA RADA (1 REČENICA)
+%2. SADRŽAJ UVODNOG DIJELA (2-4 REČENICE)
+%3. SADRŽAJ PRAKTIČNOG DIJELA (2-4 REČENICE)
+The Long Short-Term Memory (LSTM) neural network prediction model was developed and trained on the time series data set from the real LoRaWAN deplyment. 
+An overview of the LoRaWAN technology and forecasting methods for a time series data were investigated during the theoretical part of the thesis. 
+The LSTM model was created using Python programming language and Keras neural-network library, which runs on top of TensorFlow GPU. 
+
+% SAŽETI PRIKAZ OSTVARENIH REZULTATA, VLASTITI ZAKLJUČCI TEMELJEM OSTVARENIH REZ
+% OPCI ZAKLJUCCI O PRIMJENJENOM I REALIZIRANOM SUSTAVU I METODI
+The predictive, sequntial model (implementation in \autoref{chap:appendix}) had been trained on the large time series data set where only the activation of the observed device for specific moment was captured.
+Output values for each input sequence of historical data varied from 0 to 1.
+Closer the value is to 0, there is a smaller chance that the actual activation for the future moment will happen.
+Root mean square error (RMSE), considering time distance between the actual and the predicted event, was less than 2s.
+The real problem is multiplied predicted activation for some moments, where instead of single activation, multiple activation is predicted.
+In fig. \ref{fig:prob}, it is shown that the probability of an end device activation for the observed future time period raises as the time period raises.
+
+Even though the results look promising, there are a few issues.
+Firstly, only data from a single device was observed. 
+In a wireless sensor network there are hundreds and more of devices, which means that creating data and training multiple models for each device would be extremely slow and exhausting.
+Moreover, this model is adjusted for univariate time series data and as such, correlations with other devices are not taken into account. 
+Lastly, becuase of the hardware limitation, the model was trained using 10-second sequences of historical data. 
+Longer training sequences would not only improve the model itself, but also output could be sequnce predictions insted of point-to-point predictions.

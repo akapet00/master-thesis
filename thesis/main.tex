@@ -1,0 +1,120 @@
+\documentclass[12pt,twoside]{report}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{amsmath}
+\usepackage{float}
+\graphicspath{{images/}}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{listings}
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage[T1]{fontenc}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RE, RO]{Data Mining for the LoRaWAN}
+\fancyfoot{}
+\fancyfoot[RE, RO]{\thepage} %page numbers 
+\renewcommand{\headrulewidth}{0.4pt} %linewidth for header
+\renewcommand{\footrulewidth}{0.4pt} %linewidth for footer
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+
+\title{Data Mining using Machine Learning algorithms on LoRaWAN data}
+\author{Ante Lojić Kapetanović}
+\date{September 2019}
+
+\begin{document}
+
+%%%%% TITLE PAGE %%%%%
+\input{titlepage}
+
+\pagenumbering{roman} % start paging using roman numbers // frontmatter
+
+%%%%% ASSIGNMENT %%%%%
+\input{assignment}
+
+%%%%% ACKNOWLEDGEMENETS %%%%%
+\chapter*{Acknowledgements}
+Firstly, I would like to start by saying big thank you to my traineeship mentors \textbf{Petar Popovski} and 
+\textbf{Jimmy Jessen Nielsen}. Their office doors were always open for my research questions. Also, to all my 
+colleagues from the Connectivity group of the Electrical Systems department at Aalborg University, thank you for
+all enjoyable moments and help.\\
+
+To my mentor \textbf{Petar Šolić}, who provided me with a great opportunity to connect with one of the best teams in the 
+field and for giving me the freedom to shape my project the way I wanted to and for all the help during and after the research, thank you!\\
+
+Finally, I must express my profound gratitude to my dearest family - to my mom \textbf{Divna}, my grandma \textbf{Milica}, my late uncle \textbf{Ante} and late grandpa \textbf{Josip}, and to my girl \textbf{Anja}
+for providing me with unfailing support and continuous encouragement throughout my years of study and through the 
+process of researching and writing  this thesis. None of this would be possible without them. Thank you.
+
+
+%%%%% STATEMENT  %%%%%
+\chapter*{Statement}
+I confirm that the Master's thesis entitled \emph{Data Mining for the LoRaWAN} mentored by 
+Petar Šolić, Ph.D. has been composed solely by myself applying knowledge, skills 
+and methodology of scientific research acquired in the course of study at the Faculty 
+of Electrical Engineering, Mechanical Engineering and Naval Architecture and using 
+literature listed in this work. Cognitions, opinions, conclusions, mathematical 
+expressions and theories cited directly or paraphrased in this thesis are referenced 
+with literature sources.
+
+\vspace{2cm}
+\hspace*{\fill}Ante Lojić Kapetanović
+
+%%%%% TABLE OF CONTENTS %%%%%
+
+\tableofcontents
+
+
+%%%%% INTRO %%%%%
+\chapter{Introduction}
+\pagenumbering{arabic} % start paging using arabic numbers // content
+\input{chapters/introduction}
+
+%%%%% CONTENT CHAPTERS %%%%%
+\chapter{Theory behind the LoRaWAN}
+\input{chapters/chapter02}
+
+\chapter{Time series data and forecasting methods}
+\input{chapters/chapter03}
+
+\chapter{Proposed end device activity prediction LSTM model and results}
+\input{chapters/chapter04}
+
+%%%%% CONCLUSION %%%%%
+\chapter{Conclusion}
+\input{chapters/conclusion}
+
+%%%%% BIBLIOGRAPHY %%%%%
+\printbibliography
+\addcontentsline{toc}{chapter}{Bibliography}
+
+
+%%%%% FIGURES LIST %%%%%
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+%%%%% ABSTRACT %%%%%
+\chapter*{Summary}
+\addcontentsline{toc}{chapter}{Summary} 
+\input{abstract}
+
+\chapter*{Sažetak}
+\addcontentsline{toc}{chapter}{Sažetak} 
+\input{sazetak}
+
+%%%%% APPENDIX %%%%%
+\appendix
+\chapter{Prediction model in detail}
+\input{chapters/appendix}
+
+\end{document}

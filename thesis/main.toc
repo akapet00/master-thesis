@@ -1,0 +1,65 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Theory behind the LoRaWAN}{3}{chapter.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}LoRa technology overview}{4}{section.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}LoRa physical layer}{4}{section.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.1}Physical layer features}{4}{subsection.2.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.2}Parameters of the LoRa physical layer}{6}{subsection.2.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.3}Physical frame format}{7}{subsection.2.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Media access control layer}{9}{section.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.1}Devices and the network topology overview}{9}{subsection.2.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.2}LoRaWAN message format}{10}{subsection.2.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.3}Network setup and security}{11}{subsection.2.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Time series data and forecasting methods}{13}{chapter.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}General overview and main components of time series data}{14}{section.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Time series analysis and forecasting methods}{14}{section.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Introducing artificial neural networks}{19}{section.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}The ANN architecture and common applications}{19}{subsection.3.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.2}Recurrent neural networks for the time series data}{20}{subsection.3.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.3}Long short-term memory networks and their improvements for modeling the time series data}{21}{subsection.3.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Proposed end device activity prediction LSTM model and results}{25}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Network topology of the deployment in Sveb\IeC {\o }lle, Denmark}{26}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Measured data}{27}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Data preprocessing and transformation to a time series format}{28}{section.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}Proposed LSTM model for predicting future activation of end devices}{31}{section.4.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.5}Results}{34}{section.4.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.1}Output interpretation}{34}{subsection.4.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.2}Probability estimation of activation of the end device in a future arbitrarily-large time interval}{38}{subsection.4.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Conclusion}{40}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{44}{chapter*.26}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of Figures}{47}{chapter*.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Summary}{48}{chapter*.28}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Sa\IeC {\v z}etak}{49}{chapter*.29}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Prediction model in detail}{50}{appendix.A}

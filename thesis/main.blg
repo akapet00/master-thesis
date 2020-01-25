@@ -1,0 +1,24 @@
+[0] Config.pm:302> INFO - This is Biber 2.9
+[0] Config.pm:305> INFO - Logfile is 'main.blg'
+[24] biber:313> INFO - === Tue Jul 16, 2019, 18:22:05
+[42] Biber.pm:371> INFO - Reading 'main.bcf'
+[100] Biber.pm:857> INFO - Found 27 citekeys in bib section 0
+[112] Biber.pm:3981> INFO - Processing section 0
+[122] Biber.pm:4154> INFO - Looking for bibtex format file 'references.bib' for section 0
+[123] bibtex.pm:1468> INFO - LaTeX decoding ...
+[152] bibtex.pm:1294> INFO - Found BibTeX data source 'references.bib'
+[172] Utils.pm:169> WARN - Entry 'TTN' (references.bib): Invalid format '2019-29-06' of date field 'urldate' - ignoring
+[176] Utils.pm:169> WARN - Entry 'lora-alliance' (references.bib): Invalid format '2019-29-06' of date field 'urldate' - ignoring
+[189] Utils.pm:169> WARN - month field 'Nov' in entry 'Reynders_CSS' is not an integer - this will probably not sort properly.
+[205] Utils.pm:169> WARN - month field 'Oct' in entry 'Sornin_LoRaWAN' is not an integer - this will probably not sort properly.
+[213] Utils.pm:169> WARN - Entry 'security_lora' (references.bib): Invalid format '2019-29-06' of date field 'urldate' - ignoring
+[222] Utils.pm:169> WARN - month field 'May' in entry 'Raicharoen_timeseries' is not an integer - this will probably not sort properly.
+[232] Utils.pm:169> WARN - Entry 'timeseriespython' (references.bib): Invalid format '2019-28-06' of date field 'urldate' - ignoring
+[238] Utils.pm:169> WARN - month field 'March' in entry 'ann_history' is not an integer - this will probably not sort properly.
+[317] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[317] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[317] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[317] Biber.pm:3815> INFO - No sort tailoring available for locale 'en-US'
+[344] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[353] bbl.pm:720> INFO - Output to main.bbl
+[353] Biber.pm:110> INFO - WARNINGS: 8

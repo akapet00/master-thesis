@@ -1,0 +1,32 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Theory behind the LoRaWAN}{}% 2
+\BOOKMARK [1][-]{section.2.1}{LoRa technology overview}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{LoRa physical layer}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.2.1}{Physical layer features}{section.2.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.2}{Parameters of the LoRa physical layer}{section.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.3}{Physical frame format}{section.2.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Media access control layer}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.3.1}{Devices and the network topology overview}{section.2.3}% 9
+\BOOKMARK [2][-]{subsection.2.3.2}{LoRaWAN message format}{section.2.3}% 10
+\BOOKMARK [2][-]{subsection.2.3.3}{Network setup and security}{section.2.3}% 11
+\BOOKMARK [0][-]{chapter.3}{Time series data and forecasting methods}{}% 12
+\BOOKMARK [1][-]{section.3.1}{General overview and main components of time series data}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.2}{Time series analysis and forecasting methods}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{Introducing artificial neural networks}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.3.1}{The ANN architecture and common applications}{section.3.3}% 16
+\BOOKMARK [2][-]{subsection.3.3.2}{Recurrent neural networks for the time series data}{section.3.3}% 17
+\BOOKMARK [2][-]{subsection.3.3.3}{Long short-term memory networks and their improvements for modeling the time series data}{section.3.3}% 18
+\BOOKMARK [0][-]{chapter.4}{Proposed end device activity prediction LSTM model and results}{}% 19
+\BOOKMARK [1][-]{section.4.1}{Network topology of the deployment in Sveb\370lle, Denmark}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.2}{Measured data}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.3}{Data preprocessing and transformation to a time series format}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.4}{Proposed LSTM model for predicting future activation of end devices}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.5}{Results}{chapter.4}% 24
+\BOOKMARK [2][-]{subsection.4.5.1}{Output interpretation}{section.4.5}% 25
+\BOOKMARK [2][-]{subsection.4.5.2}{Probability estimation of activation of the end device in a future arbitrarily-large time interval}{section.4.5}% 26
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 27
+\BOOKMARK [0][-]{chapter*.26}{Bibliography}{}% 28
+\BOOKMARK [0][-]{chapter*.27}{List of Figures}{}% 29
+\BOOKMARK [0][-]{chapter*.28}{Summary}{}% 30
+\BOOKMARK [0][-]{chapter*.29}{Sa\236etak}{}% 31
+\BOOKMARK [0][-]{appendix.A}{Prediction model in detail}{}% 32

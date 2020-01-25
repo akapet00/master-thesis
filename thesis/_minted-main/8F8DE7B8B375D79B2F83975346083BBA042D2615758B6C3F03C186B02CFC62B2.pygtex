@@ -1,0 +1,75 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{def} \PYG{n+nf}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n}{self}\PYG{p}{)}\PYG{o}{:}
+    \PYG{n}{self}\PYG{p}{.}\PYG{n}{model} \PYG{o}{=} \PYG{n}{Sequential}\PYG{p}{()}
+
+\PYG{n}{def} \PYG{n}{build\PYGZus{}model}\PYG{p}{(}\PYG{n}{self}\PYG{p}{,} \PYG{n}{configs}\PYG{p}{)}\PYG{o}{:}
+    \PYG{n}{timer} \PYG{o}{=} \PYG{n}{Timer}\PYG{p}{()}
+    \PYG{n}{timer}\PYG{p}{.}\PYG{n}{start}\PYG{p}{()}
+
+    \PYG{k}{for} \PYG{n}{layer} \PYG{n}{in} \PYG{n}{configs}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{model}\PYG{err}{\PYGZsq{}}\PYG{p}{][}\PYG{err}{\PYGZsq{}}\PYG{n}{layers}\PYG{err}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{:}
+        \PYG{n}{neurons} \PYG{o}{=} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{neurons}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{k}{if} \PYG{err}{\PYGZsq{}}\PYG{n}{neurons}\PYG{err}{\PYGZsq{}} \PYG{n}{in} \PYG{n}{layer} \PYG{k}{else} \PYG{n}{None}
+        \PYG{n}{dropout\PYGZus{}rate} \PYG{o}{=} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{rate}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{k}{if} \PYG{err}{\PYGZsq{}}\PYG{n}{rate}\PYG{err}{\PYGZsq{}} \PYG{n}{in} \PYG{n}{layer} \PYG{k}{else} \PYG{n}{None}
+        \PYG{n}{activation} \PYG{o}{=} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{activation}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{k}{if} \PYG{err}{\PYGZsq{}}\PYG{n}{activation}\PYG{err}{\PYGZsq{}} \PYG{n}{in} \PYG{n}{layer} \PYG{k}{else} \PYG{n}{None}
+        \PYG{n}{return\PYGZus{}seq} \PYG{o}{=} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{return\PYGZus{}seq}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{k}{if} \PYG{err}{\PYGZsq{}}\PYG{n}{return\PYGZus{}seq}\PYG{err}{\PYGZsq{}} \PYG{n}{in} \PYG{n}{layer} \PYG{k}{else} \PYG{n}{None}
+        \PYG{n}{input\PYGZus{}timesteps} \PYG{o}{=} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{input\PYGZus{}timesteps}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{k}{if} \PYG{err}{\PYGZsq{}}\PYG{n}{input\PYGZus{}timesteps}\PYG{err}{\PYGZsq{}} \PYG{n}{in} \PYG{n}{layer} \PYG{k}{else} \PYG{n}{None}
+        \PYG{n}{input\PYGZus{}dim} \PYG{o}{=} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{input\PYGZus{}dim}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{k}{if} \PYG{err}{\PYGZsq{}}\PYG{n}{input\PYGZus{}dim}\PYG{err}{\PYGZsq{}} \PYG{n}{in} \PYG{n}{layer} \PYG{k}{else} \PYG{n}{None}
+
+        \PYG{k}{if} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{type}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{err}{\PYGZsq{}}\PYG{n}{dense}\PYG{err}{\PYGZsq{}}\PYG{o}{:}
+            \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{Dense}\PYG{p}{(}\PYG{n}{neurons}\PYG{p}{,} \PYG{n}{activation}\PYG{o}{=}\PYG{n}{activation}\PYG{p}{))}
+        \PYG{k}{if} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{type}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{err}{\PYGZsq{}}\PYG{n}{lstm}\PYG{err}{\PYGZsq{}}\PYG{o}{:}
+            \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{CuDNNLSTM}\PYG{p}{(}\PYG{n}{neurons}\PYG{p}{,} \PYG{n}{input\PYGZus{}shape}\PYG{o}{=}\PYG{p}{(}\PYG{n}{input\PYGZus{}timesteps}\PYG{p}{,} \PYG{n}{input\PYGZus{}dim}\PYG{p}{),} \PYG{n}{return\PYGZus{}sequences}\PYG{o}{=}\PYG{n}{return\PYGZus{}seq}\PYG{p}{))}
+        \PYG{k}{if} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{type}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{err}{\PYGZsq{}}\PYG{n}{dropout}\PYG{err}{\PYGZsq{}}\PYG{o}{:}
+            \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{Dropout}\PYG{p}{(}\PYG{n}{dropout\PYGZus{}rate}\PYG{p}{))}
+        \PYG{k}{if} \PYG{n}{layer}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{type}\PYG{err}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{err}{\PYGZsq{}}\PYG{n}{BatchNormalization}\PYG{err}{\PYGZsq{}}\PYG{o}{:}
+            \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{BatchNormalization}\PYG{p}{())}
+
+    \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{compile}\PYG{p}{(}\PYG{n}{loss}\PYG{o}{=}\PYG{n}{configs}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{model}\PYG{err}{\PYGZsq{}}\PYG{p}{][}\PYG{err}{\PYGZsq{}}\PYG{n}{loss}\PYG{err}{\PYGZsq{}}\PYG{p}{],}
+                        \PYG{n}{optimizer}\PYG{o}{=}\PYG{n}{configs}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{model}\PYG{err}{\PYGZsq{}}\PYG{p}{][}\PYG{err}{\PYGZsq{}}\PYG{n}{optimizer}\PYG{err}{\PYGZsq{}}\PYG{p}{],}
+                        \PYG{n}{metrics}\PYG{o}{=}\PYG{p}{[}\PYG{err}{\PYGZsq{}}\PYG{n}{accuracy}\PYG{err}{\PYGZsq{}}\PYG{p}{])}
+
+    \PYG{n}{print}\PYG{p}{(}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{n}{Compiled}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{timer}\PYG{p}{.}\PYG{n}{stop}\PYG{p}{()}
+
+\PYG{n}{def} \PYG{n}{train}\PYG{p}{(}\PYG{n}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{epochs}\PYG{p}{,} \PYG{n}{batch\PYGZus{}size}\PYG{p}{,} \PYG{n}{save\PYGZus{}dir}\PYG{p}{,} \PYG{n}{logs}\PYG{p}{)}\PYG{o}{:}
+    \PYG{n}{timer} \PYG{o}{=} \PYG{n}{Timer}\PYG{p}{()}
+    \PYG{n}{timer}\PYG{p}{.}\PYG{n}{start}\PYG{p}{()}
+    \PYG{n}{print}\PYG{p}{(}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{n}{Training} \PYG{n}{Started}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{print}\PYG{p}{(}\PYG{n}{f}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{p}{\PYGZob{}}\PYG{n}{epochs}\PYG{p}{\PYGZcb{}} \PYG{n}{epochs}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{n}{batch\PYGZus{}size}\PYG{p}{\PYGZcb{}} \PYG{n}{batch} \PYG{n}{size}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{n}{save\PYGZus{}fname} \PYG{o}{=} \PYG{n}{os}\PYG{p}{.}\PYG{n}{path}\PYG{p}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{save\PYGZus{}dir}\PYG{p}{,} \PYG{n}{f}\PYG{err}{\PYGZsq{}}\PYG{p}{\PYGZob{}}\PYG{n}{dt}\PYG{p}{.}\PYG{n}{datetime}\PYG{p}{.}\PYG{n}{now}\PYG{p}{().}\PYG{n}{strftime}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}m\PYGZpc{}Y\PYGZhy{}\PYGZpc{}H\PYGZpc{}M\PYGZpc{}S\PYGZdq{}}\PYG{p}{)\PYGZcb{}}\PYG{o}{\PYGZhy{}}\PYG{n}{e}\PYG{p}{\PYGZob{}}\PYG{n}{epochs}\PYG{p}{\PYGZcb{}.}\PYG{n}{h5}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{n}{callbacks} \PYG{o}{=} \PYG{p}{[}
+        \PYG{n}{EarlyStopping}\PYG{p}{(}\PYG{n}{monitor}\PYG{o}{=}\PYG{err}{\PYGZsq{}}\PYG{n}{val\PYGZus{}loss}\PYG{err}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{patience}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{),}
+        \PYG{n}{ModelCheckpoint}\PYG{p}{(}\PYG{n}{filepath}\PYG{o}{=}\PYG{n}{save\PYGZus{}fname}\PYG{p}{,} \PYG{n}{monitor}\PYG{o}{=}\PYG{err}{\PYGZsq{}}\PYG{n}{val\PYGZus{}loss}\PYG{err}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{save\PYGZus{}best\PYGZus{}only}\PYG{o}{=}\PYG{n}{True}\PYG{p}{),}
+        \PYG{n}{TensorBoard}\PYG{p}{(}\PYG{n}{log\PYGZus{}dir}\PYG{o}{=}\PYG{n}{f}\PYG{err}{\PYGZsq{}}\PYG{p}{\PYGZob{}}\PYG{n}{logs}\PYG{p}{\PYGZcb{}}\PYG{o}{/}\PYG{p}{\PYGZob{}}\PYG{n}{dt}\PYG{p}{.}\PYG{n}{datetime}\PYG{p}{.}\PYG{n}{now}\PYG{p}{().}\PYG{n}{strftime}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}m\PYGZpc{}Y\PYGZhy{}\PYGZpc{}H\PYGZpc{}M\PYGZpc{}S\PYGZdq{}}\PYG{p}{)\PYGZcb{}}\PYG{o}{\PYGZhy{}}\PYG{n}{e}\PYG{p}{\PYGZob{}}\PYG{n}{epochs}\PYG{p}{\PYGZcb{}}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{p}{]}
+
+    \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{epochs}\PYG{o}{=}\PYG{n}{epochs}\PYG{p}{,} \PYG{n}{batch\PYGZus{}size}\PYG{o}{=}\PYG{n}{batch\PYGZus{}size}\PYG{p}{,} \PYG{n}{callbacks}\PYG{o}{=}\PYG{n}{callbacks}\PYG{p}{,} \PYG{n}{shuffle}\PYG{o}{=}\PYG{n}{False}\PYG{p}{)}
+    \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{save}\PYG{p}{(}\PYG{n}{save\PYGZus{}fname}\PYG{p}{)}
+
+    \PYG{n}{print}\PYG{p}{(}\PYG{n}{f}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{n}{Training} \PYG{n}{Completed}\PYG{p}{.} \PYG{n}{Model} \PYG{n}{saved} \PYG{n}{as} \PYG{p}{\PYGZob{}}\PYG{n}{save\PYGZus{}fname}\PYG{p}{\PYGZcb{}}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{timer}\PYG{p}{.}\PYG{n}{stop}\PYG{p}{()}
+
+\PYG{n}{def} \PYG{n}{train\PYGZus{}generator}\PYG{p}{(}\PYG{n}{self}\PYG{p}{,} \PYG{n}{data\PYGZus{}gen}\PYG{p}{,} \PYG{n}{epochs}\PYG{p}{,} \PYG{n}{batch\PYGZus{}size}\PYG{p}{,} \PYG{n}{steps\PYGZus{}per\PYGZus{}epoch}\PYG{p}{,} \PYG{n}{save\PYGZus{}dir}\PYG{p}{)}\PYG{o}{:}
+    \PYG{n}{timer} \PYG{o}{=} \PYG{n}{Timer}\PYG{p}{()}
+    \PYG{n}{timer}\PYG{p}{.}\PYG{n}{start}\PYG{p}{()}
+    \PYG{n}{print}\PYG{p}{(}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{n}{Out}\PYG{o}{\PYGZhy{}}\PYG{n}{of}\PYG{o}{\PYGZhy{}}\PYG{n}{Memory} \PYG{n}{Training} \PYG{n}{Started}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{print}\PYG{p}{(}\PYG{n}{f}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{p}{\PYGZob{}}\PYG{n}{epochs}\PYG{p}{\PYGZcb{}} \PYG{n}{epochs}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{n}{batch\PYGZus{}size}\PYG{p}{\PYGZcb{}} \PYG{n}{batch} \PYG{n}{size}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{n}{steps\PYGZus{}per\PYGZus{}epoch}\PYG{p}{\PYGZcb{}} \PYG{n}{batches} \PYG{n}{per} \PYG{n}{epoch}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{n}{save\PYGZus{}fname} \PYG{o}{=} \PYG{n}{os}\PYG{p}{.}\PYG{n}{path}\PYG{p}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{save\PYGZus{}dir}\PYG{p}{,} \PYG{err}{\PYGZsq{}}\PYG{o}{\PYGZpc{}}\PYG{n}{s}\PYG{o}{\PYGZhy{}}\PYG{n}{e}\PYG{o}{\PYGZpc{}}\PYG{n}{s}\PYG{p}{.}\PYG{n}{h5}\PYG{err}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{dt}\PYG{p}{.}\PYG{n}{datetime}\PYG{p}{.}\PYG{n}{now}\PYG{p}{().}\PYG{n}{strftime}\PYG{p}{(}\PYG{err}{\PYGZsq{}}\PYG{o}{\PYGZpc{}}\PYG{n}{d}\PYG{o}{\PYGZpc{}}\PYG{n}{m}\PYG{o}{\PYGZpc{}}\PYG{n}{Y}\PYG{o}{\PYGZhy{}\PYGZpc{}}\PYG{n}{H}\PYG{o}{\PYGZpc{}}\PYG{n}{M}\PYG{o}{\PYGZpc{}}\PYG{n}{S}\PYG{err}{\PYGZsq{}}\PYG{p}{),} \PYG{n}{str}\PYG{p}{(}\PYG{n}{epochs}\PYG{p}{)))}
+
+    \PYG{n}{callbacks} \PYG{o}{=} \PYG{p}{[}
+        \PYG{n}{ModelCheckpoint}\PYG{p}{(}\PYG{n}{filepath}\PYG{o}{=}\PYG{n}{save\PYGZus{}fname}\PYG{p}{,} \PYG{n}{monitor}\PYG{o}{=}\PYG{err}{\PYGZsq{}}\PYG{n}{loss}\PYG{err}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{save\PYGZus{}best\PYGZus{}only}\PYG{o}{=}\PYG{n}{True}\PYG{p}{)}
+    \PYG{p}{]}
+
+    \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{fit\PYGZus{}generator}\PYG{p}{(}\PYG{n}{data\PYGZus{}gen}\PYG{p}{,} \PYG{n}{steps\PYGZus{}per\PYGZus{}epoch}\PYG{o}{=}\PYG{n}{steps\PYGZus{}per\PYGZus{}epoch}\PYG{p}{,} \PYG{n}{epochs}\PYG{o}{=}\PYG{n}{epochs}\PYG{p}{,} \PYG{n}{callbacks}\PYG{o}{=}\PYG{n}{callbacks}\PYG{p}{,} \PYG{n}{workers}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+    \PYG{n}{print}\PYG{p}{(}\PYG{n}{f}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{n}{Out}\PYG{o}{\PYGZhy{}}\PYG{n}{of}\PYG{o}{\PYGZhy{}}\PYG{n}{Memory} \PYG{n}{Training} \PYG{n}{Completed}\PYG{p}{.} \PYG{n}{Model} \PYG{n}{saved} \PYG{n}{as} \PYG{p}{\PYGZob{}}\PYG{n}{save\PYGZus{}fname}\PYG{p}{\PYGZcb{}}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{timer}\PYG{p}{.}\PYG{n}{stop}\PYG{p}{()}
+
+\PYG{n}{def} \PYG{n}{predict}\PYG{p}{(}\PYG{n}{self}\PYG{p}{,} \PYG{n}{x}\PYG{p}{)}\PYG{o}{:}
+    \PYG{n}{print}\PYG{p}{(}\PYG{err}{\PYGZsq{}}\PYG{n}{MODEL} \PYG{n}{Predicting} \PYG{n}{Point}\PYG{o}{\PYGZhy{}}\PYG{n}{by}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{Point}\PYG{p}{:}\PYG{err}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{predicted} \PYG{o}{=} \PYG{n}{self}\PYG{p}{.}\PYG{n}{model}\PYG{p}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{predicted} \PYG{o}{=} \PYG{n}{np}\PYG{p}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{n}{predicted}\PYG{p}{,} \PYG{p}{(}\PYG{n}{predicted}\PYG{p}{.}\PYG{n}{size}\PYG{p}{,))}
+    \PYG{k}{return} \PYG{n}{predicted}
+\end{Verbatim}

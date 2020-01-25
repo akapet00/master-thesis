@@ -1,0 +1,35 @@
+%MOTIVACIJA I ŠIRE PODRUČJE TEME RADA, ŠIRI KONTEKST, SAŽETI OPIS STANJA U PODRUČJU I VAŽNOST PODRUČJA
+The Internet of Things (IoT), interconnection of computing devices embedded in everyday objects, is spreading more and more each day.
+The greatest need of the IoT is the autonomy of connected devices, especially in wireless sensor networks.
+Wireless sensor networks consist of energy-limited devices that ususally transmit data over long distances.
+Considering the long range communication, the current trend in the IoT is the development of the protocols that enable long range coverage using low bandwidth while being as energy efficient as possible.
+This thesis is concerned with the Long Range Wide Area Network (LoRaWAN) communication model and possibility of the probability assessment of future end device activation.
+End devices in a LoRaWAN deployment are event driven and, as such, extremely unpredictable. 
+Predicting the probability of the future end device activation can lead to avoiding collisions in the air, thus improving outage rates, throughput and, in turn, energy efficiency for persistent devices.
+
+
+
+%SAŽETI OPIS TEME RADA (GL ELEMENTI ZADATKA, GLAVNI ELEMENTI ONOGA ŠTO JE NAPRAVLJENO U OKVIRU RADA)
+%1)TEMA RADA (CCA 1 REČENICA)
+%2)SADRŽAJ UVODNOG DIJELA (2-4 REČENICE)
+%3)SADRŽAJ PRAKTIČNOG DIJELA RADA (2-4 REČENICE)
+The main task of the thesis was to assess the nature of the end device behavior, to seek some correlations across the devices and to examine the predictability of the traffic based on the independent activations of the LoRaWAN deployment on the city lights of Svebølle, Denmark.
+If the prediction is possible and could be made flawlessly for each end device, one could make a protocol without the scheduling overhead.
+This new potential protocol could result in better throughput, reliability and latency.
+The thesis starts with theoretical overview of the LoRaWAN, its physical layer and media access control layer as well as the communication model. 
+Before the prediction model, there is a gentle introduction to a time series data, characteristic for the IoT traffic. 
+
+%SAŽETI PRIKAZ SADRŽAJA POJEDINIH POGLAVLJA (3-5 REČENICA PO POGLAVLJU)
+The chapter two is dealing with an in-depth overview of the LoRaWAN technology. 
+The LoRaWAN physical layer and media access control layer are both described, along with key performance features, parameters and message frame formats.
+
+The IoT end devices can have scheduled activity or can be event driven. 
+Scheduled IoT traffic, when captured, results in a time series data where each data point is indexed in time order.
+If the IoT devices are event-driven, the measured data is still structured as sequential but the period of time between time points is not equal.
+A time series data and the applicable forecasting methods are explained through the chapter three. 
+
+The first half of the forth chapter is dedicated to the network topology of the actual observed LoRaWAN deployment. 
+The data preprocessing and transforming processed data set to the time series are also described.
+The second half proposes the deep neural network model for predicting the future end device activation. 
+The Python implementation of the model itself is in the Appendix A.
+Finally, results are given in the last section of the chapter and the conclusion based on the results is given in the chapter five.

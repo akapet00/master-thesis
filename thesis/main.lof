@@ -1,0 +1,55 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces An LPWAN as a star-of-stars topology network. Every end device is connected to a base station and every base station is connected to a central \textit {hub}, in this case to a network server \cite {TTN}.\relax }}{5}{figure.caption.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A frequency variation in time of a modulated signal emitted by a LoRa transmitter \cite {Aloys_LoRa}\relax }}{7}{figure.caption.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces The structure of a LoRa frame\relax }}{8}{figure.caption.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Network topology of a typical LoRaWAN-based network. The communication is most often uplink, end devices send data to a base station which capture the MAC frames and dispatch them to a network server using a back-haul interface with high througput\relax }}{9}{figure.caption.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Class A device is commonly used device in the LoRaWAN deployment. RX1 and RX2 are receving windows enabled for server to respond but configured in a way that server should not use both RX windows\relax }}{10}{figure.caption.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.6}{\ignorespaces LoRaWAN MAC message format. The FPort field is present when the frame payload field contains data (has non-zero length). $M$ is the maximum size of the MAC Payload field. The frame header (FHDR) field has a size of 7 bytes if it does not contain options, and up to 22 bytes when options are used.\relax }}{11}{figure.caption.10}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The visualization of the exemplatory time series data: the number of passengers for each month in ten-year time period. This data is obtained from teh Github repository \cite {timeseriespython} which was used at PyCon 2017 talk on a time series analysis\relax }}{17}{figure.caption.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The order 1 differencing function performed on the air passengers data set\relax }}{18}{figure.caption.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The ARIMA model with parameters p=2, d=1 and q=2 performed on the air passengers data set\relax }}{18}{figure.caption.13}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Common visualization of the multi-layer perceptron (MLP) neural network, which uses the hidden layer feed forward network (FNN). The figure was acquired from \cite {ann_architecture}\relax }}{20}{figure.caption.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The recurrent neural network is a version of the artificial neural network with loops in them, allowing the information to persist. The cell looks at the input $x_{t}$ and outputs a value $h_{t}$, while the loop allows the information to be passed from one step of the network to the next \cite {Olah_LSTM}\relax }}{21}{figure.caption.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Unpacked recurrent neural network has the form of a chain of repeating cells. Each cell has its own \textit {tanh} activation function\relax }}{21}{figure.caption.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.7}{\ignorespaces LSTM network high-level layout. Each line carries an entire vector - from the output of one node to the input of others. All depicted algebraic operations are pointwise and blue boxes represent different activation function\relax }}{22}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Overview of the network topology of the LoRaWAN deployment on city lights in Sveb\IeC {\o }lle\relax }}{26}{figure.caption.18}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Two-way communication model between the end device and the base station in the LoRaWAN deployment in Sveb\IeC {\o }lle. Due to the nature of communication, end devices can be classified as Class A devices which support bi-directional communication between a device and a base station\relax }}{28}{figure.caption.19}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces RSSI and SNR value distribution in comparisson to theoretical Rician distribution. Blue dotted plot represents the actual measured data, while orange line represents the Rician theoretical distribution\relax }}{29}{figure.caption.20}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The dataflow graph representing the LSTM model created to predict the future end device activation using the large dataset described through the last chapter. The dataflow graph is used to represent the computation in terms of the dependencies between individual operations\relax }}{32}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The processed LSTM output is represented with red triangles, which estimate moments in which observed device is active (1) or not active (0), while blue lines represent the actual device activation\relax }}{36}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Error predictions for some time points not only miss the moment of the actual activation but also they are multiplied by the number of the delay initialized in the process of creating the time-delayed time series data set for training\relax }}{37}{figure.caption.23}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Histogram of time differences for each two adjacent end device activations\relax }}{37}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The estimation of the probability of a single end device activation on the test data\relax }}{39}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
